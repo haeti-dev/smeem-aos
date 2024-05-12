@@ -6,10 +6,11 @@ import com.sopt.smeem.domain.model.Day
 
 data class PostOnBoardingDto(
     val trainingGoalType: TrainingGoalType,
+    val planId: Int,
     val hasAlarm: Boolean,
     val day: List<Day> = emptyList(),
     val hour: Int?,
-    val minute: Int?
+    val minute: Int?,
 ) {
     fun extractTime(): TrainingRequest.TrainingTime? {
         if (day.isEmpty()) {

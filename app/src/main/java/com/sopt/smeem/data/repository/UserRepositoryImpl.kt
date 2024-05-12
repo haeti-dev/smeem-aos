@@ -32,7 +32,7 @@ class UserRepositoryImpl(
                 target = onBoardingDto.trainingGoalType,
                 trainingTime = onBoardingDto.extractTime(),
                 hasAlarm = onBoardingDto.hasAlarm,
-                planId = 0, // FIXME : 구현시 수정
+                planId = onBoardingDto.planId,
             ),
             token = "Bearer ${loginResult.apiAccessToken}",
         ).let { response ->
@@ -158,7 +158,7 @@ class UserRepositoryImpl(
                 target = training.type,
                 trainingTime = training.extractTime(),
                 hasAlarm = training.hasAlarm,
-                planId = 0, // FIXME : 구현시 수정
+                planId = training.planId,
             )
         ).let { response ->
             if (response.isSuccessful) {

@@ -193,6 +193,7 @@ class OnBoardingVM @Inject constructor(
                 try {
                     userRepositoryWithAnonymous.registerOnBoarding(
                         PostOnBoardingDto(
+                            planId = selectedPlan.value!!.serverId,
                             trainingGoalType = selectedGoal.value ?: TrainingGoalType.NO_SELECTED,
                             hasAlarm = isNotiGranted.value ?: false,
                             day = days,
@@ -226,6 +227,7 @@ class OnBoardingVM @Inject constructor(
                             minute = minute
                         ),
                         hasAlarm = isNotiGranted.value ?: false,
+                        planId = selectedPlan.value!!.serverId,
                     )
                 )
             } catch (t: Throwable) {

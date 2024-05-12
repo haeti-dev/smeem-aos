@@ -15,20 +15,20 @@ import com.sopt.smeem.util.ButtonUtil.switchOn
 import com.sopt.smeem.util.setOnSingleClickListener
 import dagger.hilt.android.AndroidEntryPoint
 
-enum class TrainingPlanType {
-    ONE,
-    THREE,
-    FIVE,
-    EVERY,
-    NOT_SELECTED,
+enum class TrainingPlanType(val serverId: Int) {
+    ONE(1),
+    THREE(2),
+    FIVE(3),
+    EVERY(4),
+    NOT_SELECTED(0),
     ;
 
-    var id: Int = 0
+    var idForView: Int = 0
     var selected: Boolean = false
 
     companion object {
         fun findById(id: Int) =
-            entries.find { it.id == id } ?: throw IllegalStateException()
+            entries.find { it.idForView == id } ?: throw IllegalStateException()
     }
 }
 
@@ -42,10 +42,10 @@ class TrainingPlanSettingFragment :
     private val vm: OnBoardingVM by activityViewModels()
 
     override fun constructLayout() {
-        ONE.id = binding.icOnBoardingTrainingPlanButton1.id
-        THREE.id = binding.icOnBoardingTrainingPlanButton2.id
-        FIVE.id = binding.icOnBoardingTrainingPlanButton3.id
-        EVERY.id = binding.icOnBoardingTrainingPlanButton4.id
+        ONE.idForView = binding.icOnBoardingTrainingPlanButton1.id
+        THREE.idForView = binding.icOnBoardingTrainingPlanButton2.id
+        FIVE.idForView = binding.icOnBoardingTrainingPlanButton3.id
+        EVERY.idForView = binding.icOnBoardingTrainingPlanButton4.id
 
         _buttons = mapOf(
             ONE to binding.icOnBoardingTrainingPlanButton1,
