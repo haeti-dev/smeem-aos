@@ -55,17 +55,17 @@ class SettingGoalFragment :
             button.setOnSingleClickListener {
                 if (NO_SELECTED != vm.selectedGoal.value) {
                     buttons[vm.selectedGoal.value]?.switchOff() // 기존 off
-                    vm.upsert(TrainingGoalType.findById(button.id))
+                    vm.upsertGoalType(TrainingGoalType.findById(button.id))
 
                     if (vm.selectedGoal.value!!.selected) {
                         button.switchOn() // 새로 On
                     } else {
-                        vm.none()
+                        vm.noneGoalType()
                     }
 
                 } else { // 최초 선택
                     button.switchOn()
-                    vm.upsert(TrainingGoalType.findById(button.id))
+                    vm.upsertGoalType(TrainingGoalType.findById(button.id))
                 }
             }
         }

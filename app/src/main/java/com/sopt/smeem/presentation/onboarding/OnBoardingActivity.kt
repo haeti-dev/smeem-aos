@@ -46,6 +46,7 @@ class OnBoardingActivity :
     override fun addObservers() {
         observeStepChanging()
         observeOnStep1()
+        observeOnStep2()
         observeOnStep3()
         observeLoading()
     }
@@ -88,7 +89,7 @@ class OnBoardingActivity :
                     }
                 }
 
-                1 -> { // step 1 fragment => 학습 목표 선택하기
+                1 -> { // step 1 fragment => 트레이닝 목표 선택하기
                     setHeaderStepNo(1)
                     setHeaderTitle(resources.getText(R.string.on_boarding_goal_header_title))
                     setHeaderDescription(resources.getText(R.string.on_boarding_goal_header_description))
@@ -103,10 +104,11 @@ class OnBoardingActivity :
                     eventVm.sendEvent(ON_BOARDING_GOAL_VIEW)
                 }
 
-                2 -> { // step 2 fragment => 선택한 학습 목표 보여주기
+                2 -> { // step 2 fragment => 트레이닝 플랜 설정
+                    nextButtonOff()
                     setHeaderStepNo(2)
-                    setHeaderTitle(resources.getText(R.string.on_boarding_encouraging_header_title))
-                    setHeaderDescription(resources.getText(R.string.on_boarding_encouraging_header_description))
+                    setHeaderTitle(resources.getText(R.string.on_boarding_training_plan_header_title))
+                    setHeaderDescription(resources.getText(R.string.on_boarding_training_plan_header_description))
                     setButtonTextNext()
 
                     vm.isDaysEmpty.value = false
@@ -114,7 +116,7 @@ class OnBoardingActivity :
                     supportFragmentManager.beginTransaction()
                         .replace(
                             R.id.fcv_on_boarding,
-                            DisplayGoalFragment()
+                            TrainingPlanSettingFragment()
                         )
                         .commit()
                 }
@@ -148,6 +150,17 @@ class OnBoardingActivity :
         vm.selectedGoal.observe(this@OnBoardingActivity) {
             // 어떤 버튼값이라도 선택되어있으면 step2 로가는 next 를 활성화시킨다.
             if (it != TrainingGoalType.NO_SELECTED) {
+                nextButtonOn()
+            } else {
+                nextButtonOff()
+            }
+        }
+    }
+
+    private fun observeOnStep2() {
+        vm.selectedPlan.observe(this@OnBoardingActivity) {
+            // 어떤 버튼값이라도 선택되어있으면 step2 로가는 next 를 활성화시킨다.
+            if (it != TrainingPlanType.NOT_SELECTED) {
                 nextButtonOn()
             } else {
                 nextButtonOff()
@@ -228,7 +241,7 @@ class OnBoardingActivity :
         vm.isDaysEmpty.observe(this) {
             if (it) {
                 nextButtonOff()
-            } else if (vm.selectedGoal.value != TrainingGoalType.NO_SELECTED) {
+            } else if (vm.selectedPlan.value != TrainingPlanType.NOT_SELECTED) {
                 nextButtonOn()
             }
         }

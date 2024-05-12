@@ -16,6 +16,13 @@
     <string name="on_boarding_goal_button4">  유창한 비즈니스 영어</string>
     <string name="on_boarding_goal_button5">  어학 시험 고득점</string>
     <string name="on_boarding_goal_button6">  아직 모르겠어요</string>
+    <string name="on_boarding_training_plan_button1"> 주 1회 작성할게요</string>
+    <string name="on_boarding_training_plan_button2"> 주 3회 작성할게요</string>
+    <string name="on_boarding_training_plan_button3"> 주 5회 작성할게요</string>
+    <string name="on_boarding_training_plan_button4"> 매일 작성할게요</string>
+
+    <string name="on_boarding_training_plan_header_title">트레이닝 플랜 설정</string>
+    <string name="on_boarding_training_plan_header_description">목표를 이루기 위한 일기 작성 플랜을 세워요.</string>
     <string name="on_boarding_encouraging_header_title">추천 트레이닝 방법</string>
     <string name="on_boarding_encouraging_header_description">스밈과 함께한다면 분명 목표를 이룰 거에요!</string>
     <string name="on_boarding_encouraging_box_header_title">나의 목표는</string>

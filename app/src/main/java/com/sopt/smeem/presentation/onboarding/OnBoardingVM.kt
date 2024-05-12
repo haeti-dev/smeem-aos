@@ -43,6 +43,10 @@ class OnBoardingVM @Inject constructor(
     val trainingGoal: LiveData<TrainingGoalDto>
         get() = _trainingGoal
 
+    private val _selectedPlan = MutableLiveData(TrainingPlanType.NOT_SELECTED)
+    val selectedPlan : LiveData<TrainingPlanType>
+        get() = _selectedPlan
+
     private val _setTimeLater = MutableLiveData<Boolean>()
     val setTimeLater: LiveData<Boolean>
         get() = _setTimeLater
@@ -55,7 +59,7 @@ class OnBoardingVM @Inject constructor(
     val goAnonymous: LiveData<Boolean>
         get() = _goAnonymous
 
-    private val _step = MutableLiveData<Int>(1)
+    val _step = MutableLiveData<Int>(1)
     val step: LiveData<Int>
         get() = _step
 
@@ -113,7 +117,7 @@ class OnBoardingVM @Inject constructor(
         return " AM"
     }
 
-    fun upsert(target: TrainingGoalType) {
+    fun upsertGoalType(target: TrainingGoalType) {
         if (selectedGoal.value == target) {
             _selectedGoal.value!!.selected = false
             _selectedGoal.value = TrainingGoalType.NO_SELECTED
@@ -123,8 +127,22 @@ class OnBoardingVM @Inject constructor(
         }
     }
 
-    fun none() {
+    fun upsertPlanType(target: TrainingPlanType) {
+        if(selectedPlan.value == target) {
+            _selectedPlan.value!!.selected = false
+            _selectedPlan.value = TrainingPlanType.NOT_SELECTED
+        } else {
+            _selectedPlan.value = target
+            _selectedPlan.value!!.selected = true
+        }
+    }
+
+    fun noneGoalType() {
         _selectedGoal.value = TrainingGoalType.NO_SELECTED
+    }
+
+    fun nonePlanType() {
+        _selectedPlan.value = TrainingPlanType.NOT_SELECTED
     }
 
     fun timeLater() {
