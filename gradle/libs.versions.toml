@@ -1,6 +1,6 @@
 [versions]
 appsflyerAndroidSdk = "6.14.0"
-agp = "8.3.0"
+agp = "8.5.1"
 activityKtx = "1.8.2"
 analyticsAndroid = "1.16.7"
 appcompat = "1.6.1"
