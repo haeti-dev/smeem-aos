@@ -29,7 +29,6 @@ import com.sopt.smeem.presentation.compose.theme.black
 import com.sopt.smeem.presentation.compose.theme.gray100
 import com.sopt.smeem.presentation.compose.theme.gray600
 import com.sopt.smeem.presentation.mypage.navigation.MoreNavGraph
-import com.sopt.smeem.presentation.mypage.navigation.SettingNavGraph
 import com.sopt.smeem.presentation.splash.SplashLoginActivity
 import com.sopt.smeem.util.VerticalSpacer
 
@@ -100,7 +99,6 @@ fun MoreScreen(
         HorizontalDivider(
             color = gray100,
             thickness = 1.dp,
-            modifier = Modifier.padding(horizontal = 19.dp)
         )
 
         VerticalSpacer(height = 30.dp)
