@@ -21,13 +21,13 @@
 
 | 구분                    | 기술 스택                                                                            |
 | ----------------------- | ------------------------------------------------------------------------------------ |
-| Architecture            | MVVM                                                                                 |
+| Architecture            | MVVM, MVI(Orbit)                                                                                 |
 | Design Pattern          | Observer Pattern, Repository Pattern                                                 |
-| JetPack Libraries       | LifeCycle, ViewModel, DataBinding, SharedPreferences, DataStore, Compose, Navigation |
+| JetPack Libraries       | LifeCycle, ViewModel, DataBinding, DataStore, Compose, Navigation                    |
 | Dependency Injection    | Hilt                                                                                 |
 | Network                 | Retrofit, OkHttp3, kotlinx.serialization                                             |
 | Asynchronous Processing | Coroutine                                                                            |
 | Third Party Library     | Kakao Login, DeepL, Glide, Coil, Timber, Baloon                                      |
 | Branch Strategy         | Git Flow                                                                             |
-| Data Analytics          | Amplitude                                                                            |
+| Data Analytics          | Amplitude, Crashlytics                                                                            |
 | Communication Tool      | Notion, Discord, Figma, Swagger                                                      |
