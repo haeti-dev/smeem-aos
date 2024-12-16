@@ -12,7 +12,7 @@
 
 ## 🧑‍💻 팀원 소개 (Team)
 
-| [계대환](https://github.com/daehwan2da) | [이태희](https://github.com/taeheeL) | [배수민](https://github.com/wateralsie) |
+| [계대환](https://github.com/daehwan2da) | [이태희](https://github.com/haeti-dev) | [배수민](https://github.com/wateralsie) |
 |:---:|:---:|:---:|
 |<img width="250" alt="image" src="https://avatars.githubusercontent.com/u/88091704?v=4" />|<img width="250" alt="image" src="https://avatars.githubusercontent.com/u/98825364?v=4" />|<img width="250" alt="image" src="https://avatars.githubusercontent.com/u/74162198?v=4" />|
 
